@@ -1,16 +1,43 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet,ScrollView ,Text, View,TouchableOpacity } from 'react-native';
+import { StyleSheet,TextInput,ScrollView ,Text, View,TouchableOpacity } from 'react-native';
 import React, { useState } from "react";
 
+
+
 export default function App() {
+  
+  const [user,setUser]=useState("Employee Name")
+  const [start,setStart]=useState("Start")
+  const [end,setEnd]=useState("End")
+
   return (
     <>
+
+  <View style={styles.Employee}>
+    <Text>Enter Employee Name</Text>
+    <TextInput  style={styles.input}
+    onChangeText={(val)=>setUser(val)}
+   
+  />
+<Text>Start</Text>
+    <TextInput  style={styles.input}
+    keyboardType='numeric'
+    onChangeText={(val)=>setStart(val)}
+  />
+  <Text>End</Text>
+    <TextInput  style={styles.input}
+    keyboardType='numeric'
+    onChangeText={(val)=>setEnd(val)}
+  />
+  
+  </View>
+
     <ScrollView>
     <View style={styles.container}>
       <StatusBar style="auto" />
       <ScrollView horizontal={true} >
-      <Text style={styles.Name}>Monday</Text>
-      <Text style={styles.Name}>Tuesday</Text>
+      <Text style={styles.Name}>{user}</Text>
+      <Text style={styles.Name}>{start}</Text>
       <Text style={styles.Name}>Wednesday</Text>
       <Text style={styles.Name}>Thursday</Text>
       <Text style={styles.Name}>Friday</Text>
@@ -123,4 +150,15 @@ const styles = StyleSheet.create({
   Name:{
     color:'blue',
   },
+  Employee:{
+    marginTop:60,
+  },
+  input:{
+    borderWidth:1,
+    borderColor:'blue',
+    padding:1,
+    margin:10,
+    width:200,
+  },
+
 });
