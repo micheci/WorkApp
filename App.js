@@ -1,18 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet,TextInput,ScrollView ,Text, View,TouchableOpacity } from 'react-native';
+import { StyleSheet,Button,TextInput,ScrollView ,Text, View,TouchableOpacity } from 'react-native';
 import React, { useState } from "react";
 
 
 
 export default function App() {
   
-  const [user,setUser]=useState("Employee Name")
-  const [start,setStart]=useState("Start")
-  const [end,setEnd]=useState("End")
+  const [user,setUser]=useState("Employee Name");
+  const [start,setStart]=useState("Start");
+  const [end,setEnd]=useState("End");
+
+  // Submit function
+  const Submit=()=>{
+
+    console.log("Test")
+    
+  };
 
   return (
     <>
 
+{/* User info */}
   <View style={styles.Employee}>
     <Text>Enter Employee Name</Text>
     <TextInput  style={styles.input}
@@ -29,21 +37,18 @@ export default function App() {
     keyboardType='numeric'
     onChangeText={(val)=>setEnd(val)}
   />
-  
+  <Button title='submit' onPress={Submit()}></Button>
   </View>
 
+
+{/* Employee schedule */}
     <ScrollView>
     <View style={styles.container}>
       <StatusBar style="auto" />
       <ScrollView horizontal={true} >
       <Text style={styles.Name}>{user}</Text>
       <Text style={styles.Name}>{start}</Text>
-      <Text style={styles.Name}>Wednesday</Text>
-      <Text style={styles.Name}>Thursday</Text>
-      <Text style={styles.Name}>Friday</Text>
-      <Text style={styles.Name}>Saturday</Text>
-      <Text style={styles.Name}>Sunday</Text>
-      <Text >Sunday</Text>
+      <Text style={styles.Name}>{end}</Text>
       </ScrollView>
       
     </View>
