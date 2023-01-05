@@ -1,29 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet,Button,TextInput,ScrollView ,Text, View,TouchableOpacity } from 'react-native';
-import React, { useState } from "react";
+import { StyleSheet,Keyboard,Button,TextInput,ScrollView ,Text, View,TouchableOpacity } from 'react-native';
+import React, { useEffect, useState } from "react";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
+import Schedule from './components/Schedule';
 
 
 export default function App() {
-  
-  const [Data,setData]=useState({
-    userName:'',
-    start:'',
-    end:'',
-  })
-  // const [user,setUser]=useState("Employee Name");
-  const [start,setStart]=useState("Start");
-  const [end,setEnd]=useState("End");
+ 
+  const [user,setUser]=useState("Employee Name");
+  const [userData,setUserData]=useState([]);
 
-  // Submit function
-  const Submit=()=>{
-    AsyncStorage.setItem('KEY','user');
-    AsyncStorage.setItem('KEY','start');
-    AsyncStorage.setItem('KEY','end');
-    console.log("Test")
-    
-  };
+  const [start,setStart]=useState("Start");
+  const [startData,setStartData]=useState([]);
+
+  const [end,setEnd]=useState("End");
+  const [endData,setEndData]=useState([]);
+
+  // Store data function
+  const StoreData=()=>{
+
+    setUserData([...userData,user])
+    setStartData([...startData,start])
+    setEndData([...endData,end])
+    setUser(null)
+    setStart(null)
+    setEnd(null)
+  }
+  
+ 
+
 
 return (
     <>
@@ -31,8 +36,8 @@ return (
 {/* User info */}
   <View style={styles.centerLogin}>
     <Text style={styles.Employee}>Employee Name</Text>
-    <TextInput  style={styles.input}
-    onChangeText={(val)=>setData.userName(val)}
+    <TextInput  onBlur={Keyboard.dismiss} style={styles.input}
+    onChangeText={(val)=>setUser(val)}
    
   />
 <Text style={styles.cntr} >Start</Text>
@@ -45,16 +50,35 @@ return (
     keyboardType='numeric'
     onChangeText={(val)=>setEnd(val)}
   />
-  <Button title='submit' onPress={Submit()}></Button>
+  <Button title='submit' onPress={StoreData}></Button>
   </View>
 
 
+
+{/* updated schedule using components */}
+<View style={styles.row}>
+  {userData.map((item,index)=>{
+    return <Schedule key={index} text={item}/>
+  })}
+  {startData.map((item,index)=>{
+    return <Schedule key={index} text={item}/>
+  })}
+  {endData.map((item,index)=>{
+    return <Schedule key={index} text={item}/>
+  })}
+  
+ {/* <Schedule text={"hello"}></Schedule>
+ <Schedule text={"another ezmple"}></Schedule>
+ <Schedule text={"3rd ezmke"}></Schedule> */}
+</View>
 {/* Employee schedule */}
+
+
   <ScrollView>
     <View style={styles.container}>
       <StatusBar style="auto" />
       <ScrollView horizontal={true} >
-      <Text style={styles.Name}>{Data.userName}</Text>
+      <Text style={styles.Name}>{user}</Text>
       <Text style={styles.Name}>{start}</Text>
       <Text style={styles.Name}>{end}</Text>
       </ScrollView>
@@ -79,11 +103,13 @@ const styles = StyleSheet.create({
   centerLogin:{
     alignItems: 'center',
     justifyContent: 'center',
-    
-    
-   
-    
+ 
   },
+  row: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    backgroundColor:'blue',
+},
   Name:{
     color:'blue',
     textAlign:'center',
