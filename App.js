@@ -1,38 +1,46 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet,Button,TextInput,ScrollView ,Text, View,TouchableOpacity } from 'react-native';
 import React, { useState } from "react";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 
 export default function App() {
   
-  const [user,setUser]=useState("Employee Name");
+  const [Data,setData]=useState({
+    userName:'',
+    start:'',
+    end:'',
+  })
+  // const [user,setUser]=useState("Employee Name");
   const [start,setStart]=useState("Start");
   const [end,setEnd]=useState("End");
 
   // Submit function
   const Submit=()=>{
-
+    AsyncStorage.setItem('KEY','user');
+    AsyncStorage.setItem('KEY','start');
+    AsyncStorage.setItem('KEY','end');
     console.log("Test")
     
   };
 
-  return (
+return (
     <>
 
 {/* User info */}
-  <View style={styles.Employee}>
-    <Text>Enter Employee Name</Text>
+  <View style={styles.centerLogin}>
+    <Text style={styles.Employee}>Employee Name</Text>
     <TextInput  style={styles.input}
-    onChangeText={(val)=>setUser(val)}
+    onChangeText={(val)=>setData.userName(val)}
    
   />
-<Text>Start</Text>
+<Text style={styles.cntr} >Start</Text>
     <TextInput  style={styles.input}
     keyboardType='numeric'
     onChangeText={(val)=>setStart(val)}
   />
-  <Text>End</Text>
+  <Text style={styles.cntr} >End</Text>
     <TextInput  style={styles.input}
     keyboardType='numeric'
     onChangeText={(val)=>setEnd(val)}
@@ -42,100 +50,16 @@ export default function App() {
 
 
 {/* Employee schedule */}
-    <ScrollView>
+  <ScrollView>
     <View style={styles.container}>
       <StatusBar style="auto" />
       <ScrollView horizontal={true} >
-      <Text style={styles.Name}>{user}</Text>
+      <Text style={styles.Name}>{Data.userName}</Text>
       <Text style={styles.Name}>{start}</Text>
       <Text style={styles.Name}>{end}</Text>
       </ScrollView>
       
     </View>
-     <View style={styles.container}>
-     <StatusBar style="auto" />
-     <ScrollView horizontal={true} >
-     <Text style={styles.Name}>Monday</Text>
-     <Text style={styles.Name}>Tuesday</Text>
-     <Text style={styles.Name}>Wednesday</Text>
-     <Text style={styles.Name}>Thursday</Text>
-     <Text style={styles.Name}>Friday</Text>
-     <Text style={styles.Name}>Saturday</Text>
-     <Text style={styles.Name}>Sunday</Text>
-     <Text >Sunday</Text>
-     </ScrollView>
-     
-   </View>
-   <View style={styles.container}>
-     <StatusBar style="auto" />
-     <ScrollView horizontal={true} >
-     <Text style={styles.Name}>Monday</Text>
-     <Text style={styles.Name}>Tuesday</Text>
-     <Text style={styles.Name}>Wednesday</Text>
-     <Text style={styles.Name}>Thursday</Text>
-     <Text style={styles.Name}>Friday</Text>
-     <Text style={styles.Name}>Saturday</Text>
-     <Text style={styles.Name}>Sunday</Text>
-     <Text >Sunday</Text>
-     </ScrollView>
-     
-   </View>
-   <View style={styles.container}>
-     <StatusBar style="auto" />
-     <ScrollView horizontal={true} >
-     <Text style={styles.Name}>Monday</Text>
-     <Text style={styles.Name}>Tuesday</Text>
-     <Text style={styles.Name}>Wednesday</Text>
-     <Text style={styles.Name}>Thursday</Text>
-     <Text style={styles.Name}>Friday</Text>
-     <Text style={styles.Name}>Saturday</Text>
-     <Text style={styles.Name}>Sunday</Text>
-     <Text >Sunday</Text>
-     </ScrollView>
-     
-   </View>
-   <View style={styles.container}>
-     <StatusBar style="auto" />
-     <ScrollView horizontal={true} >
-     <Text style={styles.Name}>Monday</Text>
-     <Text style={styles.Name}>Tuesday</Text>
-     <Text style={styles.Name}>Wednesday</Text>
-     <Text style={styles.Name}>Thursday</Text>
-     <Text style={styles.Name}>Friday</Text>
-     <Text style={styles.Name}>Saturday</Text>
-     <Text style={styles.Name}>Sunday</Text>
-     <Text >Sunday</Text>
-     </ScrollView>
-     
-   </View>
-   <View style={styles.container}>
-     <StatusBar style="auto" />
-     <ScrollView horizontal={true} >
-     <Text style={styles.Name}>Monday</Text>
-     <Text style={styles.Name}>Tuesday</Text>
-     <Text style={styles.Name}>Wednesday</Text>
-     <Text style={styles.Name}>Thursday</Text>
-     <Text style={styles.Name}>Friday</Text>
-     <Text style={styles.Name}>Saturday</Text>
-     <Text style={styles.Name}>Sunday</Text>
-     <Text >Sunday</Text>
-     </ScrollView>
-     
-   </View>
-   <View style={styles.container}>
-     <StatusBar style="auto" />
-     <ScrollView horizontal={true} >
-     <Text style={styles.Name}>Monday</Text>
-     <Text style={styles.Name}>Tuesday</Text>
-     <Text style={styles.Name}>Wednesday</Text>
-     <Text style={styles.Name}>Thursday</Text>
-     <Text style={styles.Name}>Friday</Text>
-     <Text style={styles.Name}>Saturday</Text>
-     <Text style={styles.Name}>Sunday</Text>
-     <Text >Sunday</Text>
-     </ScrollView>
-     
-   </View>
    </ScrollView>  
    </>
   );
@@ -145,25 +69,46 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'gray',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     justifyContent: 'center',
     flexDirection:'row',
     marginTop: 60,
     height: 100,
     
   },
+  centerLogin:{
+    alignItems: 'center',
+    justifyContent: 'center',
+    
+    
+   
+    
+  },
   Name:{
     color:'blue',
+    textAlign:'center',
+    justifyContent: 'center',
   },
   Employee:{
     marginTop:60,
+    textAlign:'center',
+    justifyContent: 'center',
   },
   input:{
     borderWidth:1,
-    borderColor:'blue',
+    borderColor:'green',
     padding:1,
-    margin:10,
+   
     width:200,
+    
+    
+    marginLeft: 50,
+    marginRight: 50
+
   },
+  cntr:{
+    textAlign:'center',
+    justifyContent:'center',
+  }
 
 });
