@@ -31,22 +31,107 @@ return (
     <>
 
   {/* User info */}
-  <View style={styles.centerLogin}>
-
-    <Text style={styles.Employee}>Employee Name</Text>
+  <View style={styles.centerLogin}><Text style={styles.Employee}>Employee Name</Text>
     <TextInput  onBlur={Keyboard.dismiss} style={styles.input}
     onChangeText={(val)=>setUser(val)}
     />
-    <Text style={styles.cntr} >Start</Text>
+    <ScrollView horizontal={true} >
+    
+    
+    <View style={styles.days} >
+    <Text >Monday</Text>
+    <Text  >Start</Text>
     <TextInput  style={styles.input}
     keyboardType='numeric'
     onChangeText={(val)=>setStart(val)}
     />
-    <Text style={styles.cntr} >End</Text>
+    <Text >End</Text>
     <TextInput  style={styles.input}
     keyboardType='numeric'
     onChangeText={(val)=>setEnd(val)}
     />
+    </View >
+    <View style={styles.days}>
+    <Text style={styles.cntr}>Tuesday</Text>
+    <Text  >Start</Text>
+    <TextInput  style={styles.input}
+    keyboardType='numeric'
+    onChangeText={(val)=>setStart(val)}
+    />
+    <Text >End</Text>
+    <TextInput  style={styles.input}
+    keyboardType='numeric'
+    onChangeText={(val)=>setEnd(val)}
+    />
+    </View>
+    <View style={styles.days}>
+    <Text style={styles.cntr}>Wedn</Text>
+    <Text >Start</Text>
+    <TextInput  style={styles.input}
+    keyboardType='numeric'
+    onChangeText={(val)=>setStart(val)}
+    />
+    <Text  >End</Text>
+    <TextInput  style={styles.input}
+    keyboardType='numeric'
+    onChangeText={(val)=>setEnd(val)}
+    />
+    </View>
+    <View style={styles.days}>
+    <Text style={styles.cntr}>Thurs</Text>
+    <Text  >Start</Text>
+    <TextInput  style={styles.input}
+    keyboardType='numeric'
+    onChangeText={(val)=>setStart(val)}
+    />
+    <Text  >End</Text>
+    <TextInput  style={styles.input}
+    keyboardType='numeric'
+    onChangeText={(val)=>setEnd(val)}
+    />
+    </View>
+    <View style={styles.days}>
+    <Text style={styles.cntr}>Friday</Text>
+    <Text  >Start</Text>
+    <TextInput  style={styles.input}
+    keyboardType='numeric'
+    onChangeText={(val)=>setStart(val)}
+    />
+    <Text  >End</Text>
+    <TextInput  style={styles.input}
+    keyboardType='numeric'
+    onChangeText={(val)=>setEnd(val)}
+    />
+    </View>
+    <View style={styles.days}>
+    <Text style={styles.cntr}>Saturday</Text>
+    <Text  >Start</Text>
+    <TextInput  style={styles.input}
+    keyboardType='numeric'
+    onChangeText={(val)=>setStart(val)}
+    />
+    <Text  >End</Text>
+    <TextInput  style={styles.input}
+    keyboardType='numeric'
+    onChangeText={(val)=>setEnd(val)}
+    />
+    </View>
+    <View style={styles.days}>
+    <Text style={styles.cntr}>Sunday</Text>
+    <Text  >Start</Text>
+    <TextInput  style={styles.input}
+    keyboardType='numeric'
+    onChangeText={(val)=>setStart(val)}
+    />
+    <Text  >End</Text>
+    <TextInput  style={styles.input}
+    keyboardType='numeric'
+    onChangeText={(val)=>setEnd(val)}
+    />
+    </View>
+    
+
+    </ScrollView>
     <Button title='submit' onPress={StoreData}></Button>
 
   </View>
@@ -127,18 +212,22 @@ const styles = StyleSheet.create({
   input:{
     borderWidth:1,
     borderColor:'green',
-    padding:1,
    
-    width:200,
+   
+    width:40,
     
     
-    marginLeft: 50,
-    marginRight: 50
+  
 
   },
   cntr:{
     textAlign:'center',
     justifyContent:'center',
+  },
+  days:{
+    marginTop: 60,
+    marginLeft:20,
+    
   }
 
 });
