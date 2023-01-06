@@ -27,65 +27,68 @@ export default function App() {
     setEnd(null)
   }
   
- 
-
-
 return (
     <>
 
-{/* User info */}
+  {/* User info */}
   <View style={styles.centerLogin}>
+
     <Text style={styles.Employee}>Employee Name</Text>
     <TextInput  onBlur={Keyboard.dismiss} style={styles.input}
     onChangeText={(val)=>setUser(val)}
-   
-  />
-<Text style={styles.cntr} >Start</Text>
+    />
+    <Text style={styles.cntr} >Start</Text>
     <TextInput  style={styles.input}
     keyboardType='numeric'
     onChangeText={(val)=>setStart(val)}
-  />
-  <Text style={styles.cntr} >End</Text>
+    />
+    <Text style={styles.cntr} >End</Text>
     <TextInput  style={styles.input}
     keyboardType='numeric'
     onChangeText={(val)=>setEnd(val)}
-  />
-  <Button title='submit' onPress={StoreData}></Button>
+    />
+    <Button title='submit' onPress={StoreData}></Button>
+
   </View>
 
 
 
 {/* updated schedule using components */}
 <View style={styles.row}>
+  <View>
   {userData.map((item,index)=>{
     return <Schedule key={index} text={item}/>
-  })}
+  })}</View>
+  <View>
   {startData.map((item,index)=>{
     return <Schedule key={index} text={item}/>
-  })}
+  })}</View>
+  <View>
   {endData.map((item,index)=>{
     return <Schedule key={index} text={item}/>
-  })}
+  })}</View>
   
  {/* <Schedule text={"hello"}></Schedule>
  <Schedule text={"another ezmple"}></Schedule>
  <Schedule text={"3rd ezmke"}></Schedule> */}
 </View>
-{/* Employee schedule */}
 
+{/* OLD Employee schedule */}
+  {/* <ScrollView>
 
-  <ScrollView>
     <View style={styles.container}>
       <StatusBar style="auto" />
       <ScrollView horizontal={true} >
       <Text style={styles.Name}>{user}</Text>
       <Text style={styles.Name}>{start}</Text>
       <Text style={styles.Name}>{end}</Text>
-      </ScrollView>
-      
+      </ScrollView>  
     </View>
-   </ScrollView>  
-   </>
+
+   </ScrollView>   */}
+
+
+  </>
   );
 }
 
@@ -106,9 +109,10 @@ const styles = StyleSheet.create({
  
   },
   row: {
-    flexDirection: "row",
+    flexDirection: "column",
     flexWrap: "wrap",
     backgroundColor:'blue',
+    
 },
   Name:{
     color:'blue',
