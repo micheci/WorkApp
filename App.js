@@ -10,21 +10,83 @@ export default function App() {
   const [user,setUser]=useState("Employee Name");
   const [userData,setUserData]=useState([]);
 
-  const [start,setStart]=useState("Start");
-  const [startData,setStartData]=useState([]);
+  
 
-  const [end,setEnd]=useState("End");
-  const [endData,setEndData]=useState([]);
+
+
+  const [startMon,setStartMon]=useState("Start");
+  const [startDataMon,setStartDataMon]=useState([]);
+  const [endMon,setEndMon]=useState("End");
+  const [endDataMon,setEndDataMon]=useState([]);
+
+  const [startTues,setStartTues]=useState("Start");
+  const [startDataTues,setStartDataTues]=useState([]);
+  const [endTues,setEndTues]=useState("End");
+  const [endDataTues,setEndDataTues]=useState([]);
+
+  const [startWed,setStartWed]=useState("Start");
+  const [startDataWed,setStartDataWed]=useState([]);
+  const [endWed,setEndWed]=useState("End");
+  const [endDataWed,setEndDataWed]=useState([]);
+
+  
+  const [startThur,setStartThur]=useState("Start");
+  const [startDataThur,setStartDataThur]=useState([]);
+  const [endThur,setEndThur]=useState("End");
+  const [endDataThur,setEndDataThur]=useState([]);
+
+  const [startFriday,setStartFriday]=useState("Start");
+  const [startDataFriday,setStartDataFriday]=useState([]);
+  const [endFriday,setEndFriday]=useState("End");
+  const [endDataFriday,setEndDataFriday]=useState([]);
+
+  const [startSat,setStartSat]=useState("Start");
+  const [startDataSat,setStartDataSat]=useState([]);
+  const [endSat,setEndSat]=useState("End");
+  const [endDataSat,setEndDataSat]=useState([]);
+
+  const [startSun,setStartSun]=useState("Start");
+  const [startDataSun,setStartDataSun]=useState([]);
+  const [endSun,setEndSun]=useState("End");
+  const [endDataSun,setEndDataSun]=useState([]);
+
+
+ 
 
   // Store data function
   const StoreData=()=>{
 
     setUserData([...userData,user])
-    setStartData([...startData,start])
-    setEndData([...endData,end])
+   
+    setStartDataMon([...startDataMon,startMon])
+    setEndDataMon([...endDataMon,endMon])
+    setStartDataTues([...startDataTues,startTues])
+    setEndDataTues([...endDataTues,endTues])
+    setStartDataWed([...startDataWed,startWed])
+    setEndDataWed([...endDataWed,endWed])
+    setStartDataThur([...startDataThur,startThur])
+    setEndDataThur([...endDataThur,endThur])
+    setStartDataFriday([...startDataFriday,startFriday])
+    setEndDataFriday([...endDataFriday,endFriday])
+    setStartDataSat([...startDataSat,startSat])
+    setEndDataSat([...endDataSat,endSat])
+    setStartDataSun([...startDataSun,startSun])
+    setEndDataSun([...endDataSun,endSun])
     setUser(null)
-    setStart(null)
-    setEnd(null)
+    setStartMon(null)
+    setEndMon(null)
+    setStartTues(null)
+    setEndTues(null)
+    setStartWed(null)
+    setEndWed(null)
+    setStartThur(null)
+    setEndThur(null)
+    setStartFriday(null)
+    setEndFriday(null)
+    setStartSat(null)
+    setEndSat(null)
+    setStartSun(null)
+    setEndSun(null)
   }
   
 return (
@@ -43,51 +105,55 @@ return (
     <Text  >Start</Text>
     <TextInput  style={styles.input}
     keyboardType='numeric'
-    onChangeText={(val)=>setStart(val)}
+    onChangeText={(val)=>setStartMon(val)}
     />
     <Text >End</Text>
     <TextInput  style={styles.input}
     keyboardType='numeric'
-    onChangeText={(val)=>setEnd(val)}
+    onChangeText={(val)=>setEndMon(val)}
     />
     </View >
+
     <View style={styles.days}>
     <Text style={styles.cntr}>Tuesday</Text>
     <Text  >Start</Text>
     <TextInput  style={styles.input}
     keyboardType='numeric'
-    onChangeText={(val)=>setStart(val)}
+    onChangeText={(val)=>setStartTues(val)}
     />
     <Text >End</Text>
     <TextInput  style={styles.input}
     keyboardType='numeric'
-    onChangeText={(val)=>setEnd(val)}
+    onChangeText={(val)=>setEndTues(val)}
     />
     </View>
+
     <View style={styles.days}>
-    <Text style={styles.cntr}>Wedn</Text>
+    <Text style={styles.cntr}>Wednesday</Text>
     <Text >Start</Text>
     <TextInput  style={styles.input}
     keyboardType='numeric'
-    onChangeText={(val)=>setStart(val)}
+    onChangeText={(val)=>setStartWed(val)}
     />
     <Text  >End</Text>
     <TextInput  style={styles.input}
     keyboardType='numeric'
-    onChangeText={(val)=>setEnd(val)}
+    onChangeText={(val)=>setEndWed(val)}
     />
     </View>
+
+
     <View style={styles.days}>
-    <Text style={styles.cntr}>Thurs</Text>
+    <Text style={styles.cntr}>Thursday</Text>
     <Text  >Start</Text>
     <TextInput  style={styles.input}
     keyboardType='numeric'
-    onChangeText={(val)=>setStart(val)}
+    onChangeText={(val)=>setStartThur(val)}
     />
     <Text  >End</Text>
     <TextInput  style={styles.input}
     keyboardType='numeric'
-    onChangeText={(val)=>setEnd(val)}
+    onChangeText={(val)=>setEndThur(val)}
     />
     </View>
     <View style={styles.days}>
@@ -95,12 +161,12 @@ return (
     <Text  >Start</Text>
     <TextInput  style={styles.input}
     keyboardType='numeric'
-    onChangeText={(val)=>setStart(val)}
+    onChangeText={(val)=>setStartFriday(val)}
     />
     <Text  >End</Text>
     <TextInput  style={styles.input}
     keyboardType='numeric'
-    onChangeText={(val)=>setEnd(val)}
+    onChangeText={(val)=>setEndFriday(val)}
     />
     </View>
     <View style={styles.days}>
@@ -108,12 +174,12 @@ return (
     <Text  >Start</Text>
     <TextInput  style={styles.input}
     keyboardType='numeric'
-    onChangeText={(val)=>setStart(val)}
+    onChangeText={(val)=>setStartSat(val)}
     />
     <Text  >End</Text>
     <TextInput  style={styles.input}
     keyboardType='numeric'
-    onChangeText={(val)=>setEnd(val)}
+    onChangeText={(val)=>setEndSat(val)}
     />
     </View>
     <View style={styles.days}>
@@ -121,12 +187,12 @@ return (
     <Text  >Start</Text>
     <TextInput  style={styles.input}
     keyboardType='numeric'
-    onChangeText={(val)=>setStart(val)}
+    onChangeText={(val)=>setStartSun(val)}
     />
     <Text  >End</Text>
     <TextInput  style={styles.input}
     keyboardType='numeric'
-    onChangeText={(val)=>setEnd(val)}
+    onChangeText={(val)=>setEndSun(val)}
     />
     </View>
     
@@ -139,20 +205,85 @@ return (
 
 
 {/* updated schedule using components */}
+
+{/* USERNAMe */}
 <View style={styles.row}>
   <View>
   {userData.map((item,index)=>{
     return <Schedule key={index} text={item}/>
   })}</View>
-  <View>
-  {startData.map((item,index)=>{
+
+{/* MONDAY */}
+<View>
+  <Text>Monday</Text>
+  {startDataMon.map((item,index)=>{
     return <Schedule key={index} text={item}/>
   })}</View>
   <View>
-  {endData.map((item,index)=>{
+  {endDataMon.map((item,index)=>{
+    return <Schedule key={index} text={item}/>
+  })}</View>
+
+<View>
+  <Text>Tuesday</Text>
+  {startDataTues.map((item,index)=>{
+    return <Schedule key={index} text={item}/>
+  })}</View>
+  <View>
+  {endDataTues.map((item,index)=>{
+    return <Schedule key={index} text={item}/>
+  })}</View>
+
+<View>
+  <Text>Wednesday</Text>
+  {startDataWed.map((item,index)=>{
+    return <Schedule key={index} text={item}/>
+  })}</View>
+  <View>
+  {endDataWed.map((item,index)=>{
+    return <Schedule key={index} text={item}/>
+  })}</View>
+
+<View>
+  <Text>Thursday</Text>
+  {startDataThur.map((item,index)=>{
+    return <Schedule key={index} text={item}/>
+  })}</View>
+  <View>
+  {endDataThur.map((item,index)=>{
     return <Schedule key={index} text={item}/>
   })}</View>
   
+  <View>
+  <Text>Friday</Text>
+  {startDataFriday.map((item,index)=>{
+    return <Schedule key={index} text={item}/>
+  })}</View>
+  <View>
+  {endDataFriday.map((item,index)=>{
+    return <Schedule key={index} text={item}/>
+  })}</View>
+
+<View>
+  <Text>Saturday</Text>
+  {startDataSat.map((item,index)=>{
+    return <Schedule key={index} text={item}/>
+  })}</View>
+  <View>
+  {endDataSat.map((item,index)=>{
+    return <Schedule key={index} text={item}/>
+  })}</View>
+
+<View>
+  <Text>Sunday</Text>
+  {startDataSun.map((item,index)=>{
+    return <Schedule key={index} text={item}/>
+  })}</View>
+  <View>
+  {endDataSun.map((item,index)=>{
+    return <Schedule key={index} text={item}/>
+  })}</View>
+
  {/* <Schedule text={"hello"}></Schedule>
  <Schedule text={"another ezmple"}></Schedule>
  <Schedule text={"3rd ezmke"}></Schedule> */}
